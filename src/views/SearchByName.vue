@@ -12,9 +12,8 @@
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
       <div v-for="meal in meals" :key="meal.idMeal" class="bg-white shadow rounded-xl overflow-hidden transform hover:scale-105 transition-transform">
-        <router-link  :to="`/meal/:${meal.idMeal}`" @click="getDetail(meal.idMeal)">
+        <router-link  :to="`/meal/${meal.idMeal}`" >
           <img :src="meal.strMealThumb" alt="Meal Thumbnail" class="w-full h-48 object-cover rounded-md" >
-          <MealDetails :meal='meal' class="hidden"/>
         </router-link>
         <div class="p-4">
           <h3 class="font-semibold text-lg mb-2">{{ meal.strMeal }}</h3>
@@ -33,22 +32,20 @@
 import { ref, computed, onMounted } from 'vue';
 import store from '../store/index';
 import {useRoute} from 'vue-router'
-import {searchMeals,getDetailss } from '../store/actions'
-import MealDetails from '../views/MealDetails.vue'
+import {searchMeals } from '../store/actions'
+
 
 const router = useRoute()
 const keyword = ref('');
+const detail = ref('');
 const keywordDetail = ref('');
 const meals = computed(() => store.state.searchedMeals);
-const meal = computed(() => store.state.getDetails);
+
 
 const searchMeal = () => {
   store.dispatch('searchMeals', keyword.value);
 };
 
-const getDetail =(id)=>{
-  store.dispatch('getDetailss',id)
-}
 
 onMounted(()=>{
   keyword.value = router.params.name || '';

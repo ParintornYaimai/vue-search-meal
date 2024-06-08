@@ -12,13 +12,14 @@ export async function searchMeals({ commit }, keyword) {
 }
 
 
-export async function getDetailss({commit},keyword){
+export async function getDetailss({commit},id){
   try {
-    const response = serviceGet(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${keyword}`)
-    if(response && response.meals){
-      commit('setGetDetail', response.meals);
+    if(id){
+      const response = await serviceGet(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+      if(response && response.meals){
+        commit('setGetDetail', response.meals);
+      }
     }
-    
   } catch (error) {
     console.error('Error fetching meals:', error);
   }

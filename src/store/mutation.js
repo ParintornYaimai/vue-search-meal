@@ -5,5 +5,5 @@ export function setSearchedMeals(state, meal) {
 }
 
 export function setGetDetail(state,MealDetails){
-    state.getDetail = MealDetails;
+    state.getDetails = MealDetails;
 }
