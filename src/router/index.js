@@ -14,6 +14,10 @@ const routes = [
     component:DefaultLayout,
     children:[
       {
+        path: '',
+        redirect: '/home',
+      },
+      {
         path: "/home",
         name: "home",
         component: Home,
@@ -37,13 +41,17 @@ const routes = [
         path: "/meal/:idMeal",
         name: "MealDetails",
         component: MealDetails ,
+        props: true,
       },
     ]
   },
   {
     path: "/guest",
     component:GuestLayout,
-
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/home',
   },
  
 ];

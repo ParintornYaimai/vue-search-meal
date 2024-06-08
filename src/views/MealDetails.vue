@@ -1,30 +1,27 @@
 <template>
   <div>
-    <img :src="meal" alt="">
     {{meal}}
-  </div>
+
+  </div> 
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue'
+import {computed, onMounted, ref,watch,defineProps  } from 'vue'
 import { useRoute } from 'vue-router'
 import { serviceGet } from '../serviceApi'
-
-
+import store from '../store/index'
 const router = useRoute()
-const meal = ref({})
-const keyword = ref('')
 
-const getDetail =()=>{
-  store.dispatch('getDetail',keyword.value)
-}
-
-onMounted(()=>{
-    
+const props = defineProps({
+  meal: String
 })
+console.log('Received prop value:', props?.meal)
+
+
+
+
+
+
 
 </script>
 
-<style>
-
-</style>
