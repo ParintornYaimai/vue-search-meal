@@ -4,7 +4,7 @@
         Home
       </router-link>
       <div class="mr-2 flex items-center gap-1">
-        <router-link :to="`/by-name/${name}`" class="inline-flex items-center px-2 h-full transition-colors hover:bg-purple-200">
+        <router-link :to="`/by-name`" class="inline-flex items-center px-2 h-full transition-colors hover:bg-purple-200">
           Search Meals
         </router-link >
         <router-link :to="`/by-letter/${letter}`" class="inline-flex items-center px-2 h-full transition-colors hover:bg-purple-200">

@@ -6,10 +6,11 @@ import SearchByingredient from '../views/SearchByingredient.vue'
 import Search from '../views/Search.vue'
 import DefaultLayout from '../components/DefaultLayout.vue'
 import GuestLayout from '../components/GuestLayout.vue'
+import MealDetails from '../views/MealDetails.vue'
 
 const routes = [
   {
-    path: "/home",   
+    path: "/",   
     component:DefaultLayout,
     children:[
       {
@@ -18,7 +19,7 @@ const routes = [
         component: Home,
       },
       {
-        path: "/by-name/:name?",
+        path: "/by-name",
         name: "ByName",
         component: SearchByName,
       },
@@ -33,9 +34,9 @@ const routes = [
         component: SearchByingredient ,
       },
       {
-        path: "/search/:id?",
-        name: "Search",
-        component: Search ,
+        path: "/meal/:idMeal",
+        name: "MealDetails",
+        component: MealDetails ,
       },
     ]
   },

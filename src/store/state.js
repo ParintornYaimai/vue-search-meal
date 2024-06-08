@@ -1,3 +1,5 @@
-export default{
-    meals:["Salmon"]
+export default {
+    searchedMeals: [],
+    getDetail:{}
 }
+
